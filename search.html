@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Meal For Your Ingredients</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="index.php" class="logo no-hover">Food Haven</a>
+        <div class="header-right">
+          <a href="index.php">Home</a>
+          <a href="upload.php">Upload</a>
+          <a href="search.html">Search</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+
+      <div class="meal-wrapper">
+        <div class="meal-search">
+          <h2 class="title">Find Meals For Your Ingredients</h2>
+          <blockquote>
+            Real food doesn't have ingredients, real food is ingredients.<br />
+            <cite>- Murshad</cite>
+          </blockquote>
+
+          <div class="meal-search-box">
+            <input
+              type="text"
+              class="search-control"
+              placeholder="Enter an ingredient"
+              id="search-input"
+            />
+            <button type="submit" class="search-btn btn" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="meal-result">
+          <h2 class="title">Your Search Results:</h2>
+          <div id="meal"></div>
+        </div>
+
+        <div class="meal-details">
+          <!-- recipe close btn -->
+          <button
+            type="button"
+            class="btn recipe-close-btn"
+            id="recipe-close-btn"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+
+          <!-- meal content -->
+          <div class="meal-details-content"></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer hidden">
+      <div class="container">
+        <p>&copy; 2023 Food Haven. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      // Get the footer element
+      const footer = document.querySelector(".footer");
+
+      // Add an event listener to the scroll event
+      window.addEventListener("scroll", () => {
+        // Calculate the scroll position
+        const scrollPosition = window.scrollY || window.pageYOffset;
+
+        // Calculate the height of the entire page
+        const pageHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        // Check if the scroll position is near the bottom of the page
+        if (scrollPosition > 0.9999 * pageHeight) {
+          // Remove the "hidden" class from the footer
+          footer.classList.remove("hidden");
+        } else {
+          // Add the "hidden" class to the footer
+          footer.classList.add("hidden");
+        }
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
